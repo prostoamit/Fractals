@@ -4,6 +4,19 @@ from math import sin, cos, pi
 
 class Branch:
     def __init__(self, screen, color, begin, len, len_step, angle):
+
+        # screen - pygame display
+        # color - branch color
+        #
+        # begin - branch starting position
+        # end - branch ending position
+        #
+        # length - branch length
+        #
+        # len_step - changing branch length with every layer
+        #
+        # angle - angle between branches
+
         self.screen = screen
         self.color = color
 
