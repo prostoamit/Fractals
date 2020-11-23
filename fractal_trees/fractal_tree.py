@@ -3,15 +3,25 @@ import sys
 from math import pi, sin, cos, sqrt
 from objects.Branch import Branch
 
-SIZE = WIDTH, HEIGHT = 800, 600
+SIZE = WIDTH, HEIGHT = 1080, 720
 CENTRE = CENTRE_X, CENTRE_Y = WIDTH // 2, HEIGHT // 2
 
 black = 0, 0, 0
 white = 255, 255, 255
 
-start_len = 200
+# Tree characteristics
 
-angle = pi / 3
+# Starting length (doesn't change in this version)
+start_len = HEIGHT // 10
+
+# Length change ratio (doesn't change in this version)
+length_fraction = 3
+
+# Count of layers
+recursion_count = 7
+
+# Angle between branches
+angle = 25
 
 
 def main():
@@ -19,7 +29,7 @@ def main():
     screen = pygame.display.set_mode(SIZE)
     working = True
 
-    branch = Branch(screen, white, (CENTRE_X, HEIGHT), start_len, 40, angle)
+    branch = Branch(screen, white, (CENTRE_X, HEIGHT), start_len, length_fraction, angle)
 
     while working:
         for event in pygame.event.get():
@@ -31,7 +41,7 @@ def main():
 
         screen.fill(black)
 
-        branch.draw(1)
+        branch.draw(recursion_count)
 
         pygame.display.flip()
 
