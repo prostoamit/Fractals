@@ -40,13 +40,14 @@ class Branch:
         self.end = self.end_x, self.end_y = int(self.begin_x - self.vector.x), int(self.begin_y - self.vector.y)
 
     def draw(self, recursion):
-        pygame.draw.line(self.screen, self.color, self.begin, self.end, 3)  # draws a branch
+        pygame.draw.line(self.screen, self.color, self.begin, self.end, 1)  # draws a branch
 
         if recursion > 1:
 
             # creating right branch object
             right_branch = Branch(self.screen, self.color, self.end, self.length / self.length_fraction, self.length_fraction, self.angle)
             right_branch.vector = self.vector
+            right_branch.vector.scale_to_length(right_branch.length)
 
             # rotating the branch vector to get coordinates
             right_branch.rotate_branch(right_branch.angle)
@@ -58,5 +59,6 @@ class Branch:
             left_branch = Branch(self.screen, self.color, self.end, self.length / self.length_fraction, self.length_fraction, self.angle)
             left_branch.vector = self.vector
             left_branch.rotate_branch(-left_branch.angle)
+            left_branch.vector.scale_to_length(left_branch.length)
 
             left_branch.draw(recursion - 1)

@@ -11,14 +11,14 @@ white = 255, 255, 255
 
 # Tree characteristics
 
-# Starting length (doesn't change in this version)
-start_len = HEIGHT // 10
+# Starting length
+start_len = HEIGHT // 5
 
-# Length change ratio (doesn't change in this version)
-length_fraction = 3
+# Length change ratio
+length_fraction = 1.3
 
 # Count of layers
-recursion_count = 7
+recursion_count = 15
 
 # Angle between branches
 angle = 25
