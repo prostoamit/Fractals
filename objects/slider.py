@@ -41,7 +41,7 @@ class Slider:
             # moves the slider while holding down the left mouse button
             if self.mouse_click:
                 # checks if the slider is out of range
-                if self.b_x <= event.pos[0] <= self.e_x:
+                if self.b_x <= event.pos[0] <= self.e_x and self.slider_y - 10 <= event.pos[1] <= self.slider_y + 10:
                     # moves slider
                     self.slider_x = event.pos[0]
 
