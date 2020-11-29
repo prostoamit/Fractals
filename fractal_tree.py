@@ -1,6 +1,6 @@
 import pygame
 import sys
-from math import pi, sin, cos, sqrt
+
 from objects.branch import Branch
 from objects.slider import Slider
 
@@ -10,17 +10,11 @@ CENTRE = CENTRE_X, CENTRE_Y = WIDTH // 2, HEIGHT // 2
 black = 0, 0, 0
 white = 255, 255, 255
 
-# Tree characteristics
-
 # Starting length
 start_len = HEIGHT // 5
 
 # Length change ratio
 length_fraction = 1.3
-
-# Count of layers
-
-# Angle between branches
 
 
 def main():
@@ -33,7 +27,7 @@ def main():
     angle = 25
 
     recursion_slider = Slider(screen, white, (100, HEIGHT - 20), 100, (1, 17))
-    angle_slider = Slider(screen, white, (100, HEIGHT - 40), 100, (10, 180))
+    angle_slider = Slider(screen, white, (100, HEIGHT - 40), 100, (10, 180), 30)
 
     branch = Branch(screen, white, (CENTRE_X, HEIGHT), start_len, length_fraction, angle)
 

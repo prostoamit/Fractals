@@ -1,5 +1,4 @@
 import pygame
-from math import sin, cos, pi, radians
 
 
 class Branch:
