@@ -2,7 +2,7 @@ import pygame
 
 
 class Slider:
-    def __init__(self, screen, color, position, length, interval):
+    def __init__(self, screen, color, position, length, interval, starting_value=-1):
 
         # ---------|-----
         #  ^       ^
@@ -27,7 +27,11 @@ class Slider:
         self.base_end_position = self.e_x, self.e_y = self.b_x + self.base_length, self.b_y
 
         # slider position
-        self.slider_pos = self.slider_x, self.slider_y = position
+
+        if starting_value == -1:
+            self.slider_pos = self.slider_x, self.slider_y = position
+        else:
+            self.slider_pos = self.slider_x, self.slider_y = self.b_x + int((length * (starting_value - interval[0])) / (interval[1] - interval[0])), position[1]
 
         # to locate mouse position
         self.mouse_click = False
