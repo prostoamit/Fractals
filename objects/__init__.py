@@ -1,2 +1,2 @@
-from .branch import Branch
 from .slider import Slider
+from .line import Line
