@@ -4,6 +4,8 @@ import sys
 from objects.branch import Branch
 from objects.slider import Slider
 
+from objects.fractal_tree import FractalTree
+
 SIZE = WIDTH, HEIGHT = 1080, 720
 CENTRE = CENTRE_X, CENTRE_Y = WIDTH // 2, HEIGHT // 2
 
@@ -23,13 +25,7 @@ def main():
     pygame.display.set_caption("Fractal tree")
     working = True
 
-    recursion_count = 15
-    angle = 25
-
-    recursion_slider = Slider(screen, white, (100, HEIGHT - 20), 100, (1, 17))
-    angle_slider = Slider(screen, white, (100, HEIGHT - 40), 100, (10, 180), 30)
-
-    branch = Branch(screen, white, (CENTRE_X, HEIGHT), start_len, length_fraction, angle)
+    tree = FractalTree(screen, white, (CENTRE_X, HEIGHT), start_len, length_fraction, start_len, SIZE)
 
     while working:
         for event in pygame.event.get():
@@ -38,15 +34,11 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     working = False
-            recursion_count = recursion_slider.move(event)
-            angle = angle_slider.move(event)
+            tree.process_logic(event)
 
         screen.fill(black)
 
-        recursion_slider.render()
-        angle_slider.render()
-
-        branch.draw(recursion_count, angle)
+        tree.render()
 
         pygame.display.flip()
 
