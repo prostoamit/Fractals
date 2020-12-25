@@ -1,10 +1,9 @@
 import pygame
 import sys
 
-from objects.branch import Branch
-from objects.slider import Slider
+from objects import FractalTree
 
-from objects.fractal_tree import FractalTree
+# from objects.fractal_tree import FractalTree
 
 SIZE = WIDTH, HEIGHT = 1080, 720
 CENTRE = CENTRE_X, CENTRE_Y = WIDTH // 2, HEIGHT // 2
